@@ -1,0 +1,46 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+    {% if user.is_authenticated%}
+   <div class="post">  
+        <h1 class="allpost">All Post</h1>
+ 
+        <h4>New Post</h4>
+ 
+        <form action= {% url 'NewPost'%} method='post'>
+           {% csrf_token %}
+           <textarea name="content" placeholder="New Post" rows="2" cols="60"></textarea> 
+           <br>
+            <input <button type="submit" class="btn btn-primary" value="Post"></button>
+        </form>
+ </div>
+    {% endif %}
+
+      <div class="d-flex justify-content-center">  
+         <div class="postAll">
+         
+           {% for post in  postPages %}
+     
+            <p class="user">@{{post.user}}</p>
+            <p class="content">{{post.content}}</p>
+            <p class="time">{{post.timestamp}}</p>
+              
+          {% endfor%}
+        </div>  
+</div> 
+<div class="d-flex justify-content-center">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                {% if postPages.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page={{ postPages.previous_page_number }}">Previous</a></li>
+                {% endif %}
+
+                    {% if postPages.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{ postPages.next_page_number}}">Next</a>
+                        </li>
+                    {% endif %}
+            </ul>
+        </nav>
+   
+</div> 
+{% endblock %}
