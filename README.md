@@ -20,18 +20,37 @@ The profile page should have a "Follow" or "Unfollow" button for other signed-in
 If you want to see my project, here's a link to a YouTube video where there's a short video showcasing its functionality: 
 
 [Watch video on YouTube](https://www.youtube.com/watch?v=uWpTB5i8AH0)
-<img width="1297" alt="Screenshot 2023-05-22 at 09 49 10" src="https://github.com/bmcaldarella/Network/assets/99013590/4aa689cf-6530-4f53-81a8-4bf3b4dc6d4c">
-
-<img width="1290" alt="Screenshot 2023-05-22 at 09 49 18" src="https://github.com/bmcaldarella/Network/assets/99013590/7add7603-abcb-49df-91ac-0dcc739f5895">
-
-<img width="808" alt="Screenshot 2023-05-22 at 09 49 48" src="https://github.com/bmcaldarella/Network/assets/99013590/9abf1d04-3648-4ea5-afb6-9<img width="1244" alt="Screenshot 2023-05-22 at 09 50 28" src="https://github.com/bmcaldarella/Network/assets/99013590/0eebc184-7b05-433a-af49-071f3a326180">
-70c3e164bd4">
-<img width="1206" alt="Screenshot 2023-05-22 at 09 50 06" src="https://github.com/bmcaldarella/Network/assets/99013590/819833cf-4165-412b-9197-68c5f51f4c5f">
-![Uploading Screenshot 2023-05-22 at 09.50.28.png…]()
-<img width="1235" alt="Screenshot 2023-05-22 at 09 50 45" src="https://github.com/bmcaldarella/Network/assets/99013590/4b0258fe-6558-4950-81dd-cd9563a4f95e">
-
-<img width="1290" alt="Screenshot 2023-05-22 at 09 48 54" src="https://github.com/bmcaldarella/Network/assets/99013590/b64107b8-6f8c-4248-8b56-5d119885a134">
 
 
+
+<img width="1297" alt="Screenshot 2023-05-22 at 09 49 10" src="https://github.com/bmcaldarella/Network/assets/99013590/8c58725a-87ad-44ed-affc-328e26f001cf">
+
+
+
+<img width="1290" alt="Screenshot 2023-05-22 at 09 49 18" src="https://github.com/bmcaldarella/Network/assets/99013590/efdeddbf-37cd-4083-ac75-ec4debae30a6">
+
+
+
+<img width="808" alt="Screenshot 2023-05-22 at 09 49 48" src="https://github.com/bmcaldarella/Network/assets/99013590/6b2f496f-2780-45bb-808c-e14da7310a64">
+
+
+
+<img width="1206" alt="Screenshot 2023-05-22 at 09 50 06" src="https://github.com/bmcaldarella/Network/assets/99013590/2f553bb7-d33d-4bc7-abd7-d44d569192b3">
+
+
+
+
+
+<img width="1244" alt="Screenshot 2023-05-22 at 09 50 28" src="https://github.com/bmcaldarella/Network/assets/99013590/9c0c3fab-0317-4f3f-a901-07dd512fc457">
+
+
+
+
+<img width="1235" alt="Screenshot 2023-05-22 at 09 50 45" src="https://github.com/bmcaldarella/Network/assets/99013590/14f9e202-67a8-45c9-b4b2-3522cd3b45b1">
+
+
+
+
+<img width="1290" alt="Screenshot 2023-05-22 at 09 48 54" src="https://github.com/bmcaldarella/Network/assets/99013590/d9ec1c2c-158f-4442-9b14-b10958f5f397">
 
 
