@@ -20,14 +20,18 @@ The profile page should have a "Follow" or "Unfollow" button for other signed-in
 If you want to see my project, here's a link to a YouTube video where there's a short video showcasing its functionality: 
 
 [Watch video on YouTube](https://www.youtube.com/watch?v=uWpTB5i8AH0)
+<img width="1297" alt="Screenshot 2023-05-22 at 09 49 10" src="https://github.com/bmcaldarella/Network/assets/99013590/4aa689cf-6530-4f53-81a8-4bf3b4dc6d4c">
 
+<img width="1290" alt="Screenshot 2023-05-22 at 09 49 18" src="https://github.com/bmcaldarella/Network/assets/99013590/7add7603-abcb-49df-91ac-0dcc739f5895">
 
-<img width="1290" alt="Screenshot 2023-05-22 at 09 48 54" src="https://github.com/bmcaldarella/Network/assets/990135<img width="1235" alt="Screenshot 2023-05-22 at 09 50 45" src="https://gith<img width="1319" alt="Screenshot 2023-05-22 at 08 32 14" src="https://github.com/bmcaldarella/Network/assets/99013590/e769bbc3-e00b-467f-9fbe-967c9b3cc580">
-ub.com/bmcaldarella/Network/assets/99013590/33438d9c-e592-48c2-9439-4c56d86ca4ac">
-90/4812f992-6b9f-4d1a-89e6-5d5f2f12692b">
-<img width="1206" alt="Screenshot 2023-05-22 at 09 50 06" src="https://github.com/bmcaldarella/Network/assets/99013590/6df8d553-bc3f-4d34-a6e9-<img <img width="1290" alt="Screenshot 2023-05-22 at 09 49 18" src="https://github.com/bmcaldarella/Network/assets/99013590/eeda1528-3ad0-4ba4-b6cd-814fa75f1baf">
-width="1297" alt="Screenshot 2023-05-22 at 09 49 10" src="https://github.com/bmcaldarella/Network/assets/99013590/1f6e7f93-0a35-4602-aea4-e60acf92aa13">
-a82ba76d09a3">
+<img width="808" alt="Screenshot 2023-05-22 at 09 49 48" src="https://github.com/bmcaldarella/Network/assets/99013590/9abf1d04-3648-4ea5-afb6-9<img width="1244" alt="Screenshot 2023-05-22 at 09 50 28" src="https://github.com/bmcaldarella/Network/assets/99013590/0eebc184-7b05-433a-af49-071f3a326180">
+70c3e164bd4">
+<img width="1206" alt="Screenshot 2023-05-22 at 09 50 06" src="https://github.com/bmcaldarella/Network/assets/99013590/819833cf-4165-412b-9197-68c5f51f4c5f">
+![Uploading Screenshot 2023-05-22 at 09.50.28.png…]()
+<img width="1235" alt="Screenshot 2023-05-22 at 09 50 45" src="https://github.com/bmcaldarella/Network/assets/99013590/4b0258fe-6558-4950-81dd-cd9563a4f95e">
+
+<img width="1290" alt="Screenshot 2023-05-22 at 09 48 54" src="https://github.com/bmcaldarella/Network/assets/99013590/b64107b8-6f8c-4248-8b56-5d119885a134">
+
 
 
 
