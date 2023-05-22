@@ -1,0 +1,153 @@
+{% extends "network/layout.html" %}
+
+
+{% block body %}
+
+
+<div class="perfil-info">
+                                           
+
+
+                     <div class="perfileImg">
+                        <img class="image-profile"src="{{ profile.ProfileBanner.url }}" alt="Profile banner">
+                    </div>  
+                    <div class="profilePhoto">
+                     <img class="photo" style="width:190px; height: 190px; position:relative;left:100px;  border-radius: 50%;object-fit: cover;
+                        object-position: center;
+                        "src="{{ profile.image.url }}" alt="Profile picture">
+            </div>  
+            <div class="info">
+
+                <h3 class="profile-name">{{ profile.name }}</h3>
+                <p></p>
+                <p class="username">@{{username}}</p>
+                    {% if biography %}
+                     <p class="biography">{{ profile.biography }}</p>
+            <!-- mostrar la biografía si existe -->
+                {% endif %}
+            </div>    
+            <div class="follow">
+            <span class="follower-following">{{following.count}}</span>
+            <p  class="foll">Following</p>
+            <span class="follower-following">{{followers.count}}</span>
+            <p class="foll">Followers</p>
+              </div>  
+               </div>
+        <div class="follow-user">    
+            {% if user.is_authenticated %}
+                {% if user != profileUser %}
+
+                    {% if followingTrue %}
+                        <form action= "{% url 'unfollow' %}" method="post">
+                            {% csrf_token%}
+                            <input type="hidden"  name="followeruser" value="{{profileUser}}"/>
+                            <input class="button-follow"type="submit" value="Unfollow">
+                        </form>
+                        
+                    {% else %}
+                        <form action= "{% url 'follow'%}" method="post">
+                            {% csrf_token%}
+                            <input type="hidden"  name="followeruser" value="{{profileUser}}"/>
+                            <input class="button-follow" type="submit" value="Follow">
+                        </form>
+    </div>  
+                    {% endif %}
+                {% else %}
+                {% endif %}
+            {% endif %}
+             {% if user.is_authenticated and user == profileUser  %}
+
+ <a href="{% url 'update_profile' %} " style="text-decoration: none;color: #000;">Edit Profile <img style="width: 18px;" src="/media/edit.png" ></a>
+ {% endif %}
+
+  </div>                        
+ </div> 
+      <div class="d-flex justify-content-center">  
+      
+            <div class="postAll">
+                 <h3 class="myPost">My Posts</h3>
+
+            {% for post in  postPages %}
+                <div class="posts">
+                <div class="row align-items-start"> 
+                     <img class="logo-post" style="width:70px; position:relative; height: 70px; border-radius: 50%;"src="{{ profile.image.url }}" alt="Profile picture">
+                    
+                    <h4 ><a class="user" href="{% url 'profile' user_id=post.user.id %}" >{{ profile.name }}</a></h4>
+                            <p class="post-user">@{{post.user}}</p>
+                            <p class="time">∙{{post.timestamp|timesince }}.</p>
+                </div>  
+                    <p class="content" id="content_{{post.id}}">{{post.content}}</p>
+                   
+                    <br>
+                     {% if user.is_authenticated and user == post.user %}
+                        <div class="edit-delete">    
+                            <div class="edit-post">
+                                <button class="edit-post" data-bs-toggle="modal" data-bs-target="#modal_edit_post_{{ post.id }}">Edit Post  </button> 
+                            </div>
+                            
+                      {% if request.user == post.user%} 
+                        <div class="trash">
+                            <a href="{% url 'deletePost' post.id %}" >
+                            <i class="fa fa-trash-o" style="color:#657786; font-size:20px" aria-hidden="true"></i>
+                            </a>
+                        </div>   
+                      </div>  
+                    {% endif %}        
+
+                                <div class="modal fade" id="modal_edit_post_{{ post.id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal_edit_post_{{ post.id }}" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel">Edit Post</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"  aria-label="Close">X</button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <textarea class="form-control" rows="10" id="textarea_{{ post.id }}" name="content">{{ post.content }}</textarea>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="submitHandler({{ post.id }})">Edit Post</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% else %}
+
+                            {% if user.is_authenticated %}
+                                {% if post.id in liked %}
+                                <button class="fa fa-heart" aria-hidden="true"style=" color:red;background:rgb(246,247,258); border:none;" onclick="likeHandler({{post.id}},{{liked}})" id="{{post.id}}"></button>
+                                    {% else %}
+                                <button class="fa fa-heart-o" aria-hidden="true" style="background:rgb(246,247,248); border:none;" onclick="likeHandler({{post.id}},{{liked}})" id="{{post.id}}"></button>
+
+                                {% endif %}
+                            {% endif %}
+                    {% endif %}
+
+                    {% if post.postL.count == 0%}
+                    {% else %}
+                     <p>{{ post.postL.count }} likes</p>
+
+                   
+                    {% endif %}
+                      </div>  
+            {% endfor%}
+        
+
+
+<div class="d-flex justify-content-center">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                {% if postPages.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page={{ postPages.previous_page_number }}">Previous</a></li>
+                {% endif %}
+
+                    {% if postPages.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{ postPages.next_page_number}}">Next</a>
+                        </li>
+                    {% endif %}
+            </ul>
+        </nav>
+   
+</div> 
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<div class="containeer">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body">
+          <div id="current-image-container">
+            <img class="image-profile" src="{{ user.perfile.get_banner_url }}" alt="Imagen de perfil" style="position:relative;top:70px;">
+          </div>
+          <img class="image-profile" src="{{ user.perfile.get_image_url }}" alt="Imagen de perfil" class="rounded-circle" 
+            style="width:190px; height:190px; position:relative;left:8px;bottom:60px;border-radius: 50%;object-fit: cover;object-position: center;">
+
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h6>Edit profile:</h6>
+            <hr>
+            <div class="form-group">
+              <label for="image"><strong>Select a new Profile picture:</strong></label>
+              <input type="file" class="form-control-file" id="image" name="image">
+            </div>
+            
+            <div class="form-group">
+              <label for="ProfileBanner"><strong>Select a new Profile Banner:</strong></label>
+              <input type="file" class="form-control-file" name="ProfileBanner">
+            </div>
+            
+            <hr>
+            
+            <div class="form-group">
+              <label for="name"><strong>Name:</strong></label>
+              <input type="text" class="form-control" id="name" name="name" value="{{ user.perfile.name }}">
+            </div>
+            
+            <div class="form-group">
+              <label for="biography"><strong>Biography</strong></label>
+              <textarea class="form-control" id="biography" name="biography">{{ user.perfile.biography }}</textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-dark">Save Changes</button>
+            
+            <a href="{% url 'profile' user_id=user.id %}" style="text-decoration: none;color: #000;">
+              <img style="position:relative;left:350px;width:25px;" src="/media/return.png">
+            </a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

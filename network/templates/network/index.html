@@ -1,0 +1,119 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+   
+  {% if user and user.is_authenticated %}
+        <div class="post">  
+            <form action="{% url 'NewPost' %}" method="post">
+                {% csrf_token %}
+                {% if profile %}
+                    <img class="logo-post" style="width:70px; position:relative; height: 70px; border-radius: 50%;" src="{{ profile.image.url }}" alt="Profile picture">
+                {% endif %}
+                <textarea class="form" name="content" placeholder="New Post" rows="2" cols="50"></textarea> 
+                <br>
+                <input type="submit" class="btn btn-dark" value="Post">  
+            </form>
+        </div>
+    {% else %}
+<div class="lo-empty" >
+    <h6 class="empty">What are you waiting to log in?</h6>
+    <span>
+      
+      <button class="btn btn-primary"> <a style="color:white; font-size:17px;" class="empty" href="{% url 'login' %}"> Sign In</a> </button>
+      <hr>
+    </span>
+     
+    <span>
+        Don't have an account?
+        <a href="{% url 'register' %}">Register here.</a>
+    </span>
+</div>
+    {% endif %}
+      <div class="d-flex justify-content-center">  
+      
+            <div class="postAll">
+            {% for post in  postPages %}
+                <div class="posts">
+                <div class="row align-items-start"> 
+                             <img class="logo-post" style="width:70px; position:relative; height: 70px; border-radius: 50%;" src="{{ post.user.perfile.image.url }}" alt="Profile picture">
+                        {% if post.user.profile %}
+                            <h4><a class="user" href="{% url 'profile' user_id=post.user.id %}">{{post.user.perfile.user}}</a></h4>
+                        {% else %}
+                            <h4><a class="user" href="{% url 'profile' user_id=post.user.id %}">{{post.user.perfile.name}}</a></h4>
+                        {% endif %}
+                            <p class="post-user">@{{post.user}}</p>
+                            <p class="time">∙{{post.timestamp|timesince }}.</p>
+                </div>  
+                    <p class="content" id="content_{{post.id}}">{{post.content}}</p>
+                   
+                    <br>
+                     {% if user.is_authenticated and user == post.user %}
+                        <div class="edit-delete">    
+                            <div class="edit-post">
+                                <button class="edit-post" data-bs-toggle="modal" data-bs-target="#modal_edit_post_{{ post.id }}">Edit Post  </button> 
+                            </div>
+                            
+                      {% if request.user == post.user%} 
+                        <div class="trash">
+                            <a href="{% url 'deletePost' post.id %}" style="background:white; border:none;">
+                            <i class="fa fa-trash-o" style="color:#657786; font-size:20px" aria-hidden="true"></i>
+                            </a>
+                        </div>   
+                      </div>  
+                    {% endif %}        
+
+                                <div class="modal fade" id="modal_edit_post_{{ post.id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal_edit_post_{{ post.id }}" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel">Edit Post</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"  aria-label="Close">X</button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <textarea class="form-control" rows="10" id="textarea_{{ post.id }}" name="content">{{ post.content }}</textarea>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="submitHandler({{ post.id }})">Edit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% else %}
+                           
+
+                    {% endif %}
+
+                    {% if post.postL.count == 0%}
+                    {% else %}
+                     <p>{{ post.postL.count }} likes</p>
+
+                   
+                    {% endif %}
+                      </div>  
+            {% endfor%}
+        
+
+
+<div class="d-flex justify-content-center">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                {% if postPages.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page={{ postPages.previous_page_number }}">Previous</a></li>
+                {% endif %}
+
+                    {% if postPages.has_next %}
+                    
+                        <li class="page-item"><a class="page-link" href="?page={{ postPages.next_page_number}}">Next</a>
+                        </li>
+                    {% endif %}
+            </ul>
+        </nav>
+   
+</div> 
+
+                      
+
+
+{% endblock %}
